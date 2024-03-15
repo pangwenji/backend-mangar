@@ -1,0 +1,15 @@
+.my-dropdown-trigger {
+  &.ant-dropdown-open {
+    .dorpdown-arrow {
+      transform: rotate(180deg);
+    }
+  }
+  .dorpdown-arrow {
+    width: 15px;
+    height: 15px;
+    background-image: url('@/statics/imgs/arrowDown.png');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    transition: transform 0.3s;
+  }
+}

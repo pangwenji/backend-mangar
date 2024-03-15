@@ -1,0 +1,252 @@
+@heightH: 76px;
+
+.MyCustomLayout-layout {
+	height: 100%;
+	// 处理 sm 屏幕的菜单展开关闭按钮
+	&.screen-sm,
+	&.screen-xs {
+		.ant-layout {
+			height: 100% !important;
+		}
+		.MyCustomLayout-layout-container {
+			.layout-inner-header {
+				padding-inline-start: 60px;
+			}
+		}
+		.ant-layout-header {
+			position: absolute;
+			left: 0;
+			width: fit-content;
+
+			.MyCustomLayout-global-header-collapsed-button {
+				margin: 0;
+			}
+			.MyCustomLayout-global-header-logo {
+				display: none;
+			}
+		}
+		.layout-inner-header {
+			overflow-x: auto;
+			& > .ant-space:first-child {
+				min-width: 250px;
+				margin-right: 20px;
+			}
+			& > .ant-space:last-child {
+				justify-content: flex-end;
+				min-width: 134px;
+			}
+		}
+	}
+	.ant-layout-has-sider {
+		height: 100%;
+	}
+	// 左侧导航
+	.MyCustomLayout-sider {
+		.ant-layout-sider-children {
+			border: none;
+		}
+		&.MyCustomLayout-sider-collapsed {
+			.MyCustomLayout-sider-logo {
+				position: relative;
+				padding-inline: 0;
+				&::after {
+					opacity: 1;
+				}
+				&::before {
+					opacity: 0;
+				}
+			}
+		}
+		.MyCustomLayout-sider-logo {
+			flex-direction: row;
+			height: @heightH;
+			border: none;
+			opacity: 1;
+			padding-inline-start: 56px;
+			padding-inline-end: 80px;
+			&::before,
+			&::after {
+				position: absolute;
+				width: 50%;
+				height: 50%;
+				background-repeat: no-repeat;
+				background-size: 100% auto;
+				// transition: opacity 0.2s;
+				content: '';
+			}
+			&::before {
+				top: 50%;
+				background-image: url('@/statics/imgs/LOGO.png');
+
+				transform: translateY(-50%);
+				opacity: 1;
+			}
+			&::after {
+				left: 25%;
+				background-image: url('@/statics/imgs/32_32.png');
+				opacity: 0;
+			}
+		}
+		.MyCustomLayout-sider-menu {
+			&.ant-menu-light:not(.ant-menu-horizontal),
+			&.ant-menu-light > .ant-menu:not(.ant-menu-horizontal) {
+				.ant-menu-item:not(.ant-menu-item-selected),
+				.ant-menu-submenu-title {
+					&:active {
+						background-color: none;
+					}
+				}
+			}
+			&.ant-menu-root {
+				padding-inline: 40px 10px;
+				padding-block-start: 8px;
+				&.ant-menu-inline-collapsed {
+					padding-inline: 0;
+					.ant-menu-submenu {
+						.ant-menu-sub {
+							width: 0;
+							height: 0;
+						}
+					}
+				}
+				.ant-menu-sub {
+					overflow: visible;
+					padding-inline-start: 0;
+				}
+
+				.ant-menu-title-content {
+					position: relative;
+					overflow: visible;
+					background-color: #f4f8ff;
+					&::before {
+						position: absolute;
+						left: -200px;
+						width: 404px;
+						height: 100%;
+						background-image: linear-gradient(
+							to right,
+							#4ab4e6 0%,
+							rgba(83, 185, 234, 0) 80%
+						);
+						opacity: 0;
+						content: '';
+					}
+				}
+				.ant-menu-submenu-title,
+				.ant-menu-item {
+					margin: 0;
+					overflow: visible;
+					&:active {
+						background: none !important;
+					}
+				}
+				.ant-menu-submenu-title:hover,
+				.ant-menu-item:hover,
+				.ant-menu-item-selected {
+					.ant-menu-title-content {
+						&::before {
+							opacity: 0.2;
+						}
+					}
+				}
+				.ant-menu-submenu-title {
+					margin-inline-start: 0;
+				}
+				.ant-menu-submenu {
+					.ant-menu-sub {
+						.ant-menu-item {
+							padding-inline-end: 0.5em;
+						}
+					}
+				}
+			}
+		}
+		// 收缩按钮上下居中
+		.MyCustomLayout-sider-collapsed-button {
+			transform: translateY(-50%);
+			inset-block-start: calc(76px / 2);
+		}
+	}
+	// 右侧主内容区
+	.MyCustomLayout-layout-container {
+		flex: 1;
+		.MyCustomLayout-layout-content {
+			flex: 1;
+			padding: 0;
+			& > .ant-result {
+				display: flex;
+				flex: 1;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				.ant-result-image {
+					margin: 0;
+				}
+			}
+		}
+		.layout-inner-header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			height: @heightH;
+			padding-inline-start: 40px;
+			padding-inline-end: 47px;
+			.ant-badge {
+				.ant-badge-dot {
+					width: 7px;
+					// transform: translate(0, 0);
+					height: 7px;
+					box-shadow: none;
+				}
+			}
+			.message-alert {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				width: 28px;
+				height: 28px;
+				margin: 0;
+				padding: 0;
+				color: #fff;
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: contain;
+				}
+			}
+		}
+		.ant-pro-page-container {
+			flex: 1;
+			overflow: auto;
+		}
+	}
+}
+
+// 导航收缩时菜单 popup
+.ant-menu-submenu-popup {
+	.MyCustomLayout-base-menu-inline-menu-item {
+		span {
+			display: none;
+		}
+	}
+}
+
+.message-alert-overlay {
+	width: 280px;
+	.ant-popover-inner {
+		padding: 0;
+	}
+	.ant-card .ant-card-actions > li {
+		color: inherit;
+	}
+	.ant-card-body {
+		padding: 15px 24px;
+	}
+	.ant-list {
+		.ant-list-item-meta-content {
+			.ant-list-item-meta-title {
+				margin-bottom: 6px;
+			}
+		}
+	}
+}

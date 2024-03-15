@@ -1,0 +1,48 @@
+.dashboard-page {
+  .dashboard-introduce-row {
+    align-items: stretch;
+    width: 100%;
+    margin-bottom: 40px;
+    .introduce-card-list {
+      width: 100%;
+      .ant-space-item {
+        flex: 1;
+      }
+      .ant-card {
+        @h: 89px;
+        flex: 1;
+        min-width: 354px;
+        min-height: @h;
+        .ant-card-body {
+          padding: 19px 17px;
+        }
+        .ant-skeleton {
+          height: @h;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+  .member-card {
+    .ant-tabs-nav {
+      .ant-tabs-ink-bar {
+        display: none;
+      }
+      &::before {
+        border: none;
+      }
+      .ant-tabs-tab {
+        padding-block: 0;
+        &.ant-tabs-tab-active {
+          font-weight: 600;
+          font-size: 16px;
+        }
+      }
+    }
+    .ant-tabs-extra-content {
+      .ant-typography {
+        margin: 0;
+      }
+    }
+  }
+}

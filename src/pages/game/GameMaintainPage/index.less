@@ -1,0 +1,49 @@
+.active-color(@color, @nth, @wrapperBG) {
+  & > div:nth-child(@{nth}) {
+    .ant-radio-button-wrapper:not(
+        .ant-radio-button-wrapper-disabled
+      ):first-child:hover {
+      color: @color;
+    }
+    .ant-radio-button-wrapper-checked:not(
+        .ant-radio-button-wrapper-disabled
+      ):first-child {
+      &:hover {
+        color: #fff;
+      }
+      background-color: @wrapperBG;
+      .ant-radio-button-checked {
+        background-color: @color;
+        border-color: @color;
+        border-radius: 6px;
+      }
+      &::before {
+        background-color: @color;
+      }
+    }
+  }
+}
+.status-button-group {
+  @defaultBG: #ececef;
+  overflow: hidden;
+  border-radius: 6px;
+  .ant-radio-button-wrapper {
+    height: 35px;
+    font-weight: 500;
+    line-height: 35px;
+    background-color: @defaultBG;
+    border: none;
+
+    padding-inline: 20px;
+    &::before {
+      content: none;
+    }
+  }
+  .ant-radio-button-wrapper:first-child:last-child {
+    border-radius: 0;
+  }
+  .active-color(#2fafec, 1, @defaultBG);
+  .active-color(#2bb596, 2, @defaultBG);
+  .active-color(#eea62e, 3, @defaultBG);
+  .active-color(#ee5b75, 4, @defaultBG);
+}

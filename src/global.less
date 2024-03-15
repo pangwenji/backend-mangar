@@ -1,0 +1,284 @@
+html,
+body,
+#root {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	font-family: -apple-system, BlinkMacSystemFont, Tahoma, Arial,
+		'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+}
+
+* {
+	@scrollW: 5px;
+
+	&::-webkit-scrollbar {
+		width: @scrollW;
+		height: 9px;
+	}
+
+	&::-webkit-scrollbar-track {
+		border-radius: 10px;
+		-webkit-box-shadow: inset 0 0 @scrollW rgba(0, 0, 0, 0.1);
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: #5a577d;
+		border-radius: 10px;
+
+		&:hover {
+			background: #3c377b;
+		}
+	}
+}
+
+.colorWeak {
+	filter: invert(80%);
+}
+
+.ant-layout {
+	min-height: 100vh;
+}
+
+.ant-pro-sider.ant-layout-sider.ant-pro-sider-fixed {
+	left: unset;
+}
+
+canvas {
+	display: block;
+}
+
+body {
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+ul,
+ol {
+	list-style: none;
+}
+
+@media (max-width: 768px) {
+	.ant-table {
+		width: 100%;
+		overflow-x: auto;
+
+		&-thead > tr,
+		&-tbody > tr {
+			> th,
+			> td {
+				white-space: pre;
+
+				> span {
+					display: block;
+				}
+			}
+		}
+	}
+}
+
+.ant-descriptions-item-container {
+	flex-wrap: wrap;
+}
+
+.ant-descriptions-item-content {
+	flex-wrap: inherit;
+
+	.ant-typography {
+		white-space: pre-wrap;
+	}
+
+	pre {
+		width: 100% !important;
+	}
+}
+
+.ant-descriptions-extra {
+	.ant-pro-field-option {
+		flex-wrap: wrap;
+
+		& * {
+			flex-basis: content !important;
+		}
+	}
+}
+
+.ant-upload-list-item-image {
+	object-fit: contain;
+}
+
+.table-cell-jump .ant-typography {
+	color: inherit;
+}
+
+.ant-pro-table-list-toolbar-container {
+	.ant-pro-table-list-toolbar-right {
+		& > div {
+			flex-wrap: wrap;
+		}
+	}
+}
+
+.ant-pro-footer-bar-right > * {
+	line-height: 0;
+}
+
+/* 定制样式 */
+image {
+	-webkit-user-drag: none;
+}
+
+.ant-btn-primary:not(.ant-btn-background-ghost) {
+	background-image: linear-gradient(to bottom, #66c3f8 0%, #2892f4 100%);
+	border: none;
+
+	&:hover {
+		opacity: 0.8;
+	}
+
+	&[disabled] {
+		background-image: none;
+	}
+}
+
+.ant-message .ant-message-notice .ant-message-notice-content {
+	padding: 0;
+
+	.ant-message-custom-content {
+		display: flex;
+		align-items: center;
+		min-width: 145px;
+		padding: 11px 14px 11px 18px;
+		border-radius: 4px;
+		box-shadow: 0 2px 10px 0 rgba(76, 103, 100, 0.1);
+	}
+
+	.ant-message-error {
+		color: #ee5b75;
+		background-color: #fff4f4;
+	}
+
+	.ant-message-success {
+		color: #2bb596;
+		background-color: #f3fcfb;
+	}
+}
+
+.ant-modal {
+	.ant-modal-content {
+		padding: 0;
+
+		.ant-modal-header {
+			margin-bottom: 20px;
+			padding: 18px 24px 15px 24px;
+			border-bottom: 1px rgba(72, 71, 96, 0.1) solid;
+
+			.ant-modal-title {
+				font-weight: normal;
+			}
+		}
+
+		.ant-modal-body {
+			padding: 0 20px;
+		}
+
+		.ant-modal-footer {
+			padding: 24px 20px;
+			padding-top: 0;
+
+			.ant-btn-lg {
+				height: 36px;
+				padding: 0 26px;
+				font-size: 14px;
+				line-height: 36px;
+				border-radius: 6px;
+			}
+
+			.ant-btn-default {
+				color: #424251;
+				background-color: rgba(72, 71, 96, 0.28);
+			}
+		}
+	}
+}
+
+.ant-switch {
+	@switchSize: 24px;
+	min-width: 50px;
+	height: @switchSize;
+	line-height: @switchSize;
+	background-color: rgba(72, 71, 96, 0.1);
+
+	&:hover:not(.ant-switch-disabled) {
+		background-color: rgba(63, 61, 101, 0.2);
+	}
+
+	@handleSize: 20px;
+	.ant-switch-handle {
+		top: 50%;
+		width: @handleSize;
+		height: @handleSize;
+		transform: translateY(-50%);
+		inset-inline-start: 3px;
+		&:before {
+			background-color: rgba(72, 71, 96, 0.5);
+		}
+	}
+
+	&.ant-switch-checked {
+		.ant-switch-inner {
+			padding-inline-start: 3px;
+			padding-inline-end: 20px;
+		}
+		.ant-switch-handle {
+			inset-inline-start: auto;
+			inset-inline-end: 3px;
+			&:before {
+				background-color: #fff;
+			}
+		}
+	}
+
+	.ant-switch-inner {
+		padding-inline-start: 20px;
+		padding-inline-end: 1px;
+		.ant-switch-inner-checked {
+			color: #fff;
+		}
+
+		.ant-switch-inner-unchecked {
+			margin-top: -@switchSize;
+			color: rgba(90, 87, 125, 1);
+		}
+	}
+}
+
+.ant-card .ant-card-head {
+	border-bottom: 0;
+}
+
+.ant-tooltip {
+	--antd-arrow-background-color: #5a577d;
+
+	.ant-tooltip-inner {
+		max-height: 45vh;
+		overflow: auto;
+		background-color: var(--antd-arrow-background-color);
+	}
+}
+
+@media screen and (max-width: 750px) {
+	.ant-drawer-right {
+		.ant-drawer-content-wrapper {
+			max-width: 70vw !important;
+		}
+	}
+}
+
+// 下拉框显示滚动条
+/* .ant-select-dropdown {
+	.rc-virtual-list > .rc-virtual-list-holder {
+		overflow-y: auto !important;
+	}
+} */

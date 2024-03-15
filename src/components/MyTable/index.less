@@ -1,0 +1,168 @@
+.ant-pro-table {
+	/* START 搜索表单搜索项样式定制 */
+	.ant-pro-table-search {
+		margin-block-end: 0;
+		.ant-form {
+			padding-inline: 0;
+			padding-block-end: 0;
+			> .ant-row {
+				flex-wrap: wrap;
+				> .ant-col {
+					flex: auto;
+					max-width: fit-content;
+					&:last-of-type {
+						padding-inline: 0 !important;
+						.ant-btn-primary {
+							padding-inline: 18px;
+						}
+					}
+				}
+			}
+			.quick-time-search {
+				.ant-picker-input {
+					width: 9.6em;
+				}
+			}
+		}
+		@borderColor: rgba(72, 71, 96, 0.28);
+		@borderRadius: 6px;
+		.col-border {
+			border-color: @borderColor;
+			border-style: solid;
+			border-width: 1px;
+			border-radius: @borderRadius;
+		}
+		.col-height {
+			height: 32px;
+		}
+		.ant-form-item:not(.ant-pro-query-filter-actions) {
+			.ant-form-item-row {
+				& > .ant-form-item-label {
+					.col-height();
+					.col-border();
+					border-right: none;
+					border-top-right-radius: 0;
+					border-bottom-right-radius: 0;
+					label {
+						padding: 9px 16px;
+					}
+				}
+				& > .ant-form-item-control {
+					.ant-form-item-control-input-content {
+						.col-height();
+						.col-border();
+						flex: none;
+						min-width: 8em;
+						max-width: none;
+						overflow: hidden;
+						border-top-left-radius: 0;
+						border-bottom-left-radius: 0;
+						.ant-space {
+							.ant-space-item {
+								border-right: 1px @borderColor solid;
+								&:last-of-type {
+									border-right: none;
+								}
+							}
+						}
+					}
+				}
+				/*   .ant-select {
+          min-width: 6em;
+        } */
+				.ant-select-selector,
+				.ant-picker,
+				.ant-input-affix-wrapper,
+				.ant-input-number {
+					.col-height();
+					border: none;
+					border-radius: 0;
+				}
+				.ant-input {
+					width: 8em;
+				}
+			}
+			.ant-form-item-label {
+				.ant-form-item-no-colon::after {
+					content: none;
+				}
+			}
+
+			&.no-label-search-item {
+				.ant-form-item-control {
+					.ant-form-item-control-input-content {
+						border-top-left-radius: @borderRadius;
+						border-bottom-left-radius: @borderRadius;
+					}
+				}
+			}
+		}
+	}
+	/* 搜索表单搜索项样式定制 END */
+	.ant-pro-card-body {
+		padding-inline: 0;
+	}
+
+	.ant-table-wrapper {
+		.ant-table {
+			border: solid 1px rgba(72, 71, 96, 0.1);
+			border-radius: 8px;
+		}
+		.ant-table-thead > tr > th {
+			font-weight: 500;
+		}
+	}
+	.ant-table-body {
+		.ant-table-tbody {
+			.ant-table-placeholder {
+				.ant-table-cell {
+					padding-inline: 0;
+				}
+			}
+		}
+		.ant-table-cell {
+			.ant-btn {
+				&.ant-btn-text,
+				&.ant-btn-link {
+					padding-inline: 2px;
+				}
+			}
+		}
+	}
+
+	/* START 表格分页器定制 */
+	.ant-pagination {
+		li {
+			@itemH: 26px;
+			min-width: @itemH;
+			height: @itemH;
+			font-size: 12px;
+			line-height: @itemH;
+			border: solid 1px rgba(72, 71, 96, 0.28) !important;
+			padding-inline: 2px;
+			a {
+				padding: 0;
+			}
+			&.ant-pagination-options {
+				border: none !important;
+				.ant-pagination-options-quick-jumper {
+					margin: 0;
+				}
+				.ant-pagination-options-quick-jumper,
+				input {
+					height: 100%;
+
+					line-height: 100%;
+				}
+			}
+		}
+	}
+	/* 表格分页器定制 END */
+}
+
+// 下拉框宽度，配合 popupMatchSelectWidth: false
+.ant-select-dropdown {
+	.ant-select-item-option-content {
+		min-width: fix-content !important;
+	}
+}
